@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'features/auth/presentation/pages/sign_in/sign_in_page.dart';
+
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -12,7 +14,7 @@ class MainApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: const SignInPage(),
     );
   }
 }
