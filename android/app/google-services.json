@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "122347414924",
+    "project_id": "houseasytest-c4b1c",
+    "storage_bucket": "houseasytest-c4b1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122347414924:android:008948313340b911ff62a9",
+        "android_client_info": {
+          "package_name": "net.houseasy.houseasy_teste_frontend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122347414924-en58morp1tnompqqjcbjrb7mgiimf6vp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpXouSyGLJ3J6Uo9eOsbcQ0-mfoZ11pek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122347414924-en58morp1tnompqqjcbjrb7mgiimf6vp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
