@@ -27,10 +27,11 @@ class SignInState extends Equatable {
     String? password,
   }) {
     return SignInState(
-        message: message ?? this.message,
-        status: status ?? this.status,
-        email: email ?? this.email,
-        password: password ?? this.password);
+      message: message ?? this.message,
+      status: status ?? this.status,
+      email: email ?? this.email,
+      password: password ?? this.password,
+    );
   }
 
   @override

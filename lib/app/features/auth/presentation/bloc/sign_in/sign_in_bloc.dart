@@ -30,7 +30,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     SignInPasswordTextChangedEvent event,
     Emitter<SignInState> emit,
   ) async {
-    emit(state.copyWith(email: event.password));
+    emit(state.copyWith(password: event.password));
   }
 
   Future<void> _handleSignInSubmmitButtonPressedEvent(
