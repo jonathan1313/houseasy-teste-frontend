@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SignUpTextFieldUserNameComponent extends StatelessWidget {
+import '../../../../../../core/mixins/input_validations_mixin.dart';
+
+class SignUpTextFieldUserNameComponent extends StatelessWidget
+    with InputValidationsMixin {
   const SignUpTextFieldUserNameComponent({super.key});
 
   @override
@@ -10,7 +13,12 @@ class SignUpTextFieldUserNameComponent extends StatelessWidget {
         labelText: 'Nome',
         counterText: '',
       ),
-      onChanged: (value) {},
+      maxLength: 100,
+      validator: (textFieldValue) => combine([
+        () => isNotEmpty(textFieldValue),
+        () => hasMinChars(textFieldValue),
+      ]),
+      onChanged: ((textFieldValue) {}),
     );
   }
 }

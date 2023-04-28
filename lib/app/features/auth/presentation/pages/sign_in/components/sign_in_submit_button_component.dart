@@ -18,7 +18,7 @@ class SignInSubmitButtonComponent extends StatelessWidget {
             buttonText: 'Entrar',
             buttonAction: () {
               if (signInFormKey.currentState!.validate()) {
-                // alguma coisa
+                // do something
               }
             },
           ),

@@ -8,14 +8,17 @@ import 'sign_up_use_terms_component.dart';
 import 'sign_up_submit_button_component.dart';
 
 class SignUpFormComponent extends StatelessWidget {
-  const SignUpFormComponent({super.key});
+  SignUpFormComponent({super.key});
+
+  final GlobalKey<FormState> _signUpFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Form(
+        key: _signUpFormKey,
         child: Column(
-          children: const [
+          children: [
             Text(
               'Cadastre-se agora mesmo',
               style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w700),
@@ -36,7 +39,7 @@ class SignUpFormComponent extends StatelessWidget {
             SizedBox(height: 25.0),
             SignUpUseTermsComponent(),
             SizedBox(height: 10.0),
-            SignUpSubmitButtonComponent(),
+            SignUpSubmitButtonComponent(signUpFormKey: _signUpFormKey),
             SizedBox(height: 15.0),
           ],
         ),

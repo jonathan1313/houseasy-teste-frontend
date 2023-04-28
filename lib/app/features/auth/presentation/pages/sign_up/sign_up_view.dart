@@ -38,7 +38,7 @@ class SignUpView extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const AuthContainerWidget(
+                      AuthContainerWidget(
                         child: SignUpFormComponent(),
                       ),
                     ],
