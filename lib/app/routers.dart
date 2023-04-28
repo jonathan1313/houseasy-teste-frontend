@@ -7,7 +7,7 @@ class Routers {
   Routers._();
 
   static Map<String, Widget Function(BuildContext)> get pages => {
-        '/': (context) => const SignInPage(),
+        '/': (context) => SignInPage(),
         '/signUp': (context) => SignUpPage(),
       };
 }

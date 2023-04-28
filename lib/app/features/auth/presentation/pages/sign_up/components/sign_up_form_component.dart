@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../bloc/sign_up/sign_up_bloc.dart';
+
 import 'sign_up_text_field_user_name_component.dart';
 import 'sign_up_text_field_email_component.dart';
 import 'sign_up_text_field_password_component.dart';

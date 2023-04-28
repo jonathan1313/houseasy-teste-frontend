@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'sign_in_text_field_email_component.dart';
 import 'sign_in_text_field_password_component.dart';
 import 'sign_in_submit_button_component.dart';
+
+import '../../../bloc/sign_in/sign_in_bloc.dart';
 
 class SignInFormComponent extends StatelessWidget {
   SignInFormComponent({super.key});
@@ -12,31 +15,46 @@ class SignInFormComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Form(
-        key: _signInFormKey,
-        child: Column(
-          children: [
-            const Text(
-              'Bem Vindo Novamente',
-              style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 10.0),
-            const Text(
-              'Informe seus detalhes para login abaixo',
-              style: TextStyle(color: Colors.grey),
-            ),
-            const SizedBox(height: 25.0),
-            const SignInTextFieldEmailComponent(),
-            const SizedBox(height: 10.0),
-            SignInTextFieldPasswordComponent(),
-            const SizedBox(height: 25.0),
-            SignInSubmitButtonComponent(signInFormKey: _signInFormKey),
-            const SizedBox(height: 25.0),
-            const Text(
-              'Esqueceu sua senha?',
-              style: TextStyle(fontSize: 12.0, color: Colors.grey),
-            ),
-          ],
+      child: BlocListener<SignInBloc, SignInState>(
+        listener: (context, state) {
+          if(state.status == SignInStatus.loading) {
+            print('loading');
+          }
+
+          if(state.status == SignInStatus.failure) {
+            print('fail ${state.message}');
+          }
+
+          if(state.status == SignInStatus.success) {
+            print('Go to home page');
+          }
+        },
+        child: Form(
+          key: _signInFormKey,
+          child: Column(
+            children: [
+              const Text(
+                'Bem Vindo Novamente',
+                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 10.0),
+              const Text(
+                'Informe seus detalhes para login abaixo',
+                style: TextStyle(color: Colors.grey),
+              ),
+              const SizedBox(height: 25.0),
+              const SignInTextFieldEmailComponent(),
+              const SizedBox(height: 10.0),
+              SignInTextFieldPasswordComponent(),
+              const SizedBox(height: 25.0),
+              SignInSubmitButtonComponent(signInFormKey: _signInFormKey),
+              const SizedBox(height: 25.0),
+              const Text(
+                'Esqueceu sua senha?',
+                style: TextStyle(fontSize: 12.0, color: Colors.grey),
+              ),
+            ],
+          ),
         ),
       ),
     );

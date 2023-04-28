@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:houseasy_teste_frontend/app/core/mixins/input_validations_mixin.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../../core/mixins/input_validations_mixin.dart';
+
+import '../../../bloc/sign_in/sign_in_bloc.dart';
 
 class SignInTextFieldPasswordComponent extends StatelessWidget
     with InputValidationsMixin {
@@ -33,7 +37,10 @@ class SignInTextFieldPasswordComponent extends StatelessWidget
                 () => hasMinChars(textFieldValue),
               ],
             ),
-            onChanged: ((textFieldValue) {}),
+            onChanged: ((textFieldValue) {
+              context.read<SignInBloc>().add(
+                  SignInPasswordTextChangedEvent(password: textFieldValue));
+            }),
           );
         });
   }
