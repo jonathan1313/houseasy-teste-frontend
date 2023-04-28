@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/styles/custom_theme.dart';
 import '../../../../../core/utils/show_animated_dialog.dart';
@@ -15,7 +16,7 @@ class SignOutView extends StatelessWidget {
     return BlocListener<SignOutBloc, SignOutState>(
       listener: (context, state) {
         if (state.status == SignOutStatus.success) {
-          Navigator.pushReplacementNamed(context, '/');
+          context.pushReplacement('/');
         }
       },
       child: OutlinedButton(
@@ -30,7 +31,7 @@ class SignOutView extends StatelessWidget {
             repeatIconAnimation: false,
             actions: [
               TextButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => context.pop(),
                 child: Text(
                   'Continuar',
                   style: TextStyle(

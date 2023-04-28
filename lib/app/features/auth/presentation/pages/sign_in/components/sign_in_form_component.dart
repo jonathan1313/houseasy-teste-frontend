@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/utils/show_animated_dialog.dart';
 import '../../../../../../core/widgets/lottie_animated_icons_widget.dart';
+
 import 'sign_in_text_field_email_component.dart';
 import 'sign_in_text_field_password_component.dart';
 import 'sign_in_submit_button_component.dart';
@@ -27,7 +29,7 @@ class SignInFormComponent extends StatelessWidget {
               actions: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    context.pop();
                     context
                         .read<SignInBloc>()
                         .add(const SignInSetInitialStateEvent());
@@ -40,7 +42,7 @@ class SignInFormComponent extends StatelessWidget {
 
           if (state.status == SignInStatus.success) {
             context.read<SignInBloc>().add(const SignInSetInitialStateEvent());
-            Navigator.pushReplacementNamed(context, '/home');
+            context.pushReplacement('/home');
           }
         },
         child: Form(

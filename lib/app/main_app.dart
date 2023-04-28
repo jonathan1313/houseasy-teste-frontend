@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:houseasy_teste_frontend/app/routers.dart';
 
 import 'core/styles/custom_theme.dart';
 import 'core/utils/dismiss_keyboard_widget.dart';
+
+import 'routers.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -10,11 +11,11 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DismissKeyboardWidget(
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'Houseasy FrontEnd Test',
         debugShowCheckedModeBanner: false,
         theme: CustomTheme.theme,
-        routes: Routers.pages,        
+        routerConfig: routes,       
       ),
     );
   }

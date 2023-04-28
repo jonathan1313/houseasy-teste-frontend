@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/utils/show_animated_dialog.dart';
 
@@ -32,7 +33,7 @@ class SignUpFormComponent extends StatelessWidget {
           }
 
           if (state.status == SignUpStatus.failure) {
-            Navigator.pop(context);
+            context.pop();
 
             ShowAnimatedDialog.show(
               context: context,
@@ -41,7 +42,7 @@ class SignUpFormComponent extends StatelessWidget {
               actions: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    context.pop();
                     context.read<SignUpBloc>().add(const SignUpSetInitialStateEvent());                    
                   },
                   child: const Text('Tentar Novamente'),
@@ -51,7 +52,7 @@ class SignUpFormComponent extends StatelessWidget {
           }
 
           if (state.status == SignUpStatus.success) {
-            Navigator.pop(context);
+            context.pop();
 
             ShowAnimatedDialog.show(
               context: context,
@@ -61,7 +62,7 @@ class SignUpFormComponent extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     context.read<SignUpBloc>().add(const SignUpSetInitialStateEvent());
-                    Navigator.pushReplacementNamed(context, '/');
+                    context.pushReplacement('/');
                   },
                   child: const Text('Entrar'),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../widgets/auth_container_widget.dart';
 import '../../widgets/auth_gradient_background_widget.dart';
@@ -24,7 +25,7 @@ class SignUpView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconButton(
-                            onPressed: () => Navigator.of(context).pop(),
+                            onPressed: () => context.pop(),
                             icon: const Icon(
                               Icons.arrow_back_ios,
                               color: Colors.white,
@@ -34,7 +35,7 @@ class SignUpView extends StatelessWidget {
                           AuthTopOptionWidget(
                             labelText: 'Já é cadastrado?',
                             buttonText: 'Entrar',
-                            buttonAction: () => Navigator.pop(context),
+                            buttonAction: () => context.pop(),
                           ),
                         ],
                       ),

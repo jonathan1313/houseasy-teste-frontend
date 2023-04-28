@@ -38,7 +38,7 @@ class CustomTheme {
   static ButtonStyle outlinedButtonStyle() {
     return OutlinedButton.styleFrom(
       foregroundColor: color.shade900,
-      side: BorderSide(color: color.shade900),
+      side: BorderSide(color: color.shade900, width: 2.0),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(10.0),
