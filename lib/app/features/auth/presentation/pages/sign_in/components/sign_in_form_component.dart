@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/utils/show_animated_dialog.dart';
+import '../../../../../../core/widgets/lottie_animated_icons_widget.dart';
 import 'sign_in_text_field_email_component.dart';
 import 'sign_in_text_field_password_component.dart';
 import 'sign_in_submit_button_component.dart';
@@ -17,16 +19,28 @@ class SignInFormComponent extends StatelessWidget {
     return SingleChildScrollView(
       child: BlocListener<SignInBloc, SignInState>(
         listener: (context, state) {
-          if(state.status == SignInStatus.loading) {
-            print('loading');
+          if (state.status == SignInStatus.failure) {
+            ShowAnimatedDialog.show(
+              context: context,
+              dialogBody: Text(state.message, textAlign: TextAlign.center),
+              alertType: AnimatedIconsTypes.failure,
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    context
+                        .read<SignInBloc>()
+                        .add(const SignInSetInitialStateEvent());
+                  },
+                  child: const Text('Tentar Novamente'),
+                ),
+              ],
+            );
           }
 
-          if(state.status == SignInStatus.failure) {
-            print('fail ${state.message}');
-          }
-
-          if(state.status == SignInStatus.success) {
-            print('Go to home page');
+          if (state.status == SignInStatus.success) {
+            context.read<SignInBloc>().add(const SignInSetInitialStateEvent());
+            Navigator.pushReplacementNamed(context, '/home');
           }
         },
         child: Form(

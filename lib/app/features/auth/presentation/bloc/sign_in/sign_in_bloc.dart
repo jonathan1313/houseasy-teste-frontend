@@ -17,6 +17,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     on<SignInEmailTextChangedEvent>(_handleSignInEmailTextChangedEvent);
     on<SignInPasswordTextChangedEvent>(_handleSignInPasswordTextChangedEvent);
     on<SignInSubmmitButtonPressedEvent>(_handleSignInSubmmitButtonPressedEvent);
+    on<SignInSetInitialStateEvent>(_handleSignInSetInitialStateEvent);
   }
 
   Future<void> _handleSignInEmailTextChangedEvent(
@@ -38,15 +39,13 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     Emitter<SignInState> emit,
   ) async {
     try {
-
       emit(state.copyWith(status: SignInStatus.loading));
 
-      await _signInUsecase.signInWithEmailAndPassword(email: state.email, password: state.password);
+      await _signInUsecase.signInWithEmailAndPassword(
+          email: state.email, password: state.password);
 
       emit(state.copyWith(status: SignInStatus.success));
-
     } on FirebaseAuthException catch (error, stack) {
-
       log('Erro ao realizar login do usuario com email e senha',
           error: error, stackTrace: stack);
 
@@ -66,19 +65,23 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       }
 
       emit(state.copyWith(status: SignInStatus.failure, message: errorMessage));
-
     } catch (error, stack) {
-      
       log('Algum problema ao tenta execulta a funcção de login com email e senha do usuário',
           error: error, stackTrace: stack);
-      
+
       emit(
         state.copyWith(
           status: SignInStatus.failure,
           message: 'Algo deu errado ao realizar seu login, tente novamente.',
         ),
       );
-      
     }
+  }
+
+  Future<void> _handleSignInSetInitialStateEvent(
+    SignInSetInitialStateEvent event,
+    Emitter<SignInState> emit,
+  ) async {
+    emit(state.copyWith(status: SignInStatus.initial, email: '', password: ''));
   }
 }

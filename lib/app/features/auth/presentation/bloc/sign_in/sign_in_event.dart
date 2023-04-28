@@ -28,3 +28,7 @@ class SignInPasswordTextChangedEvent extends SignInEvent {
 class SignInSubmmitButtonPressedEvent extends SignInEvent {
   const SignInSubmmitButtonPressedEvent();
 }
+
+class SignInSetInitialStateEvent extends SignInEvent {
+  const SignInSetInitialStateEvent();
+}

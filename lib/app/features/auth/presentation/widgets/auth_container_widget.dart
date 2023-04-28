@@ -17,7 +17,7 @@ class AuthContainerWidget extends StatelessWidget {
           height: context.percentHeight(0.2),
           alignment: Alignment.center,
           child: const Text(
-            'Movieasy',
+            'RandoMovie',
             style: TextStyle(
                 fontSize: 28.0,
                 color: Colors.white,
