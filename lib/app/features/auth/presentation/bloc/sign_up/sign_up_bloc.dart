@@ -33,21 +33,21 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     SignUpEventEmailTextChangedEvent event,
     Emitter<SignUpState> emit,
   ) async {
-    emit(state.copyWith(userName: event.email));
+    emit(state.copyWith(email: event.email));
   }
 
   Future<void> _handleSignUpEventPasswordTextChangedEvent(
     SignUpEventPasswordTextChangedEvent event,
     Emitter<SignUpState> emit,
   ) async {
-    emit(state.copyWith(userName: event.password));
+    emit(state.copyWith(password: event.password));
   }
 
   Future<void> _handleSignUpEventPasswordConfirmationTextChangedEvent(
     SignUpEventPasswordConfirmationTextChangedEvent event,
     Emitter<SignUpState> emit,
   ) async {
-    emit(state.copyWith(userName: event.passwordConfirmation));
+    emit(state.copyWith(passwordConfirmation: event.passwordConfirmation));
   }
 
   Future<void> _handleSignUpEventSubmitButtonPressedEvent(

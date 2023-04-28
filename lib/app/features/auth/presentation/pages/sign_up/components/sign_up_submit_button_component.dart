@@ -1,7 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/widgets/custom_gradient_button_widget.dart';
+import '../../../bloc/sign_up/sign_up_bloc.dart';
 
 class SignUpSubmitButtonComponent extends StatelessWidget {
   final GlobalKey<FormState> signUpFormKey;
@@ -19,7 +20,9 @@ class SignUpSubmitButtonComponent extends StatelessWidget {
             buttonText: 'Cadastrar-se',
             buttonAction: () {
               if (signUpFormKey.currentState!.validate()) {
-                // do something
+                context
+                    .read<SignUpBloc>()
+                    .add(const SignUpEventSubmitButtonPressedEvent());
               }
             },
           ),
