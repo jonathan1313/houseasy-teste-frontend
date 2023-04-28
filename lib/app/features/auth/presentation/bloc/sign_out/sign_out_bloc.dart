@@ -1,9 +1,9 @@
 import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:houseasy_teste_frontend/app/features/auth/domain/usecases/sign_out/sign_out_usecase.dart';
+
+import '../../../domain/usecases/sign_out/sign_out_usecase.dart';
 
 part 'sign_out_event.dart';
 part 'sign_out_state.dart';

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:houseasy_teste_frontend/app/core/helpers/size_extensions.dart';
 
 import '../../../../core/styles/custom_theme.dart';
+import '../../../auth/presentation/pages/sign_out/sign_out_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -32,7 +33,11 @@ class HomePage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                
+                Row(
+                  children: [
+                    Expanded(child: SignOutPage()),
+                  ],
+                ),
               ],
             ),
           ),

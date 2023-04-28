@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
         title: 'Houseasy FrontEnd Test',
         debugShowCheckedModeBanner: false,
         theme: CustomTheme.theme,
-        routes: Routers.pages,
+        routes: Routers.pages,        
       ),
     );
   }
