@@ -61,6 +61,7 @@ class CustomTheme {
     inputDecorationTheme: inputDecorationStyle(),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: elevatedButtonStyle(),
-    )
+    ),
+    fontFamily: 'Heebo',
   );
 }

@@ -27,3 +27,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  fonts:
+    - family: Heebo
+      fonts:
+        - asset: assets/fonts/Heebo-Regular.ttf
+        - asset: assets/fonts/Heebo-Bold.ttf
+          weight: 700
