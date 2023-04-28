@@ -4,7 +4,7 @@ import 'package:lottie/lottie.dart';
 enum AnimatedIconsTypes {
   loading,
   success,
-  error,
+  failure,
   info,
 }
 
@@ -27,12 +27,12 @@ class LottieAnimatedIconsWidget extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 20.0),
         child: Lottie.asset(
           alertType == AnimatedIconsTypes.success
-              ? 'assets/lottiefiles/success_icon_animation.json'
-              : alertType == AnimatedIconsTypes.error
-                  ? 'assets/lottiefiles/error_icon_animation.json'
+              ? 'assets/lottie/success_icon_animation.json'
+              : alertType == AnimatedIconsTypes.failure
+                  ? 'assets/lottie/error_icon_animation.json'
                   : alertType == AnimatedIconsTypes.info
-                      ? 'assets/lottiefiles/info_icon_animation.json'
-                      : 'assets/lottiefiles/loading_icon_animation.json',
+                      ? 'assets/lottie/info_icon_animation.json'
+                      : 'assets/lottie/loading_icon_animation.json',
           fit: BoxFit.contain,
           repeat: repeat,
         ),

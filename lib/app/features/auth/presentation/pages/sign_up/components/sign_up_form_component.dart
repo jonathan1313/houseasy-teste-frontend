@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/utils/show_animated_dialog.dart';
+
+import '../../../../../../core/widgets/lottie_animated_icons_widget.dart';
 import '../../../bloc/sign_up/sign_up_bloc.dart';
 
 import 'sign_up_text_field_user_name_component.dart';
@@ -20,21 +23,51 @@ class SignUpFormComponent extends StatelessWidget {
     return SingleChildScrollView(
       child: BlocListener<SignUpBloc, SignUpState>(
         listener: (context, state) {
-          
           if (state.status == SignUpStatus.loading) {
-
-            
-            
+            ShowAnimatedDialog.show(
+              context: context,
+              dialogBody: Text(state.message, textAlign: TextAlign.center),
+              alertType: AnimatedIconsTypes.loading,
+            );
           }
 
           if (state.status == SignUpStatus.failure) {
-            
+            Navigator.pop(context);
+
+            ShowAnimatedDialog.show(
+              context: context,
+              dialogBody: Text(state.message, textAlign: TextAlign.center),
+              alertType: AnimatedIconsTypes.failure,
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    context.read<SignUpBloc>().add(const SignUpSetInitialStateEvent());                    
+                  },
+                  child: const Text('Tentar Novamente'),
+                ),
+              ],
+            );
           }
 
           if (state.status == SignUpStatus.success) {
-            
+            Navigator.pop(context);
+
+            ShowAnimatedDialog.show(
+              context: context,
+              dialogBody: Text(state.message, textAlign: TextAlign.center),
+              alertType: AnimatedIconsTypes.success,
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    context.read<SignUpBloc>().add(const SignUpSetInitialStateEvent());
+                    Navigator.pushNamed(context, '/');
+                  },
+                  child: const Text('Entrar'),
+                ),
+              ],
+            );
           }
-          
         },
         child: Form(
           key: _signUpFormKey,

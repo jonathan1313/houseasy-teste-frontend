@@ -65,7 +65,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
     try {
 
-      emit(state.copyWith(status: SignUpStatus.loading));
+      emit(state.copyWith(status: SignUpStatus.loading, message: 'Salvando suas informações, por favor aguarde...'));
 
       await _signUpUsecase.createUserWithEmailAndPassword(email: state.email, password: state.password, userName: state.userName);
 
