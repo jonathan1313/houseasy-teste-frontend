@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SignInTextFieldPasswordComponent extends StatelessWidget {
-  const SignInTextFieldPasswordComponent({super.key});
+class SignUpTextFieldPasswordComponent extends StatelessWidget {
+  const SignUpTextFieldPasswordComponent({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:houseasy_teste_frontend/app/routers.dart';
 
 import 'core/styles/custom_theme.dart';
 import 'core/utils/dismiss_keyboard_widget.dart';
-
-import 'features/auth/presentation/pages/sign_in/sign_in_page.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -15,7 +14,7 @@ class MainApp extends StatelessWidget {
         title: 'Houseasy FrontEnd Test',
         debugShowCheckedModeBanner: false,
         theme: CustomTheme.theme,
-        home: const SignInPage(),
+        routes: Routers.pages,
       ),
     );
   }

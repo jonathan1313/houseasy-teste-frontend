@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SignInTextFieldPasswordComponent extends StatelessWidget {
-  const SignInTextFieldPasswordComponent({super.key});
+class SignUpTextFieldPasswordConfirmationComponent extends StatelessWidget {
+  const SignUpTextFieldPasswordConfirmationComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: true,
       decoration: InputDecoration(
-        labelText: 'Senha',
+        labelText: 'Confirme a Senha',
         suffixIcon: IconButton(
           onPressed: () {},
           icon: const Icon(Icons.visibility),

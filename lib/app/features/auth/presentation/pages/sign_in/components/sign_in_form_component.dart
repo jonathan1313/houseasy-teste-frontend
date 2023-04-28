@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/widgets/custom_gradient_button_widget.dart';
-
 import 'sign_in_text_field_email_component.dart';
 import 'sign_in_text_field_password_component.dart';
+import 'sign_in_submit_button_component.dart';
 
 class SignInFormComponent extends StatelessWidget {
   const SignInFormComponent({super.key});
@@ -12,34 +11,27 @@ class SignInFormComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       child: Column(
-        children: [
-          const Text(
+        children: const [
+          Text(
             'Bem Vindo Novamente',
             style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w700),
           ),
-          const SizedBox(height: 10.0),
-          const Text(
+          SizedBox(height: 10.0),
+          Text(
             'Informe seus detalhes para login abaixo',
             style: TextStyle(color: Colors.grey),
           ),
-          const SizedBox(height: 25.0),
-          const SignInTextFieldEmailComponent(),
-          const SizedBox(height: 10.0),
-          const SignInTextFieldPasswordComponent(),
-          const SizedBox(height: 25.0),
-          Row(
-            children: [
-              Expanded(
-                child: CustomGradientButtonWidget(
-                  buttonText: 'Entrar',
-                  buttonAction: (){},
-                ),
-              ),
-            ],
+          SizedBox(height: 25.0),
+          SignInTextFieldEmailComponent(),
+          SizedBox(height: 10.0),
+          SignInTextFieldPasswordComponent(),
+          SizedBox(height: 25.0),
+          SignInSubmitButtonComponent(),
+          SizedBox(height: 25.0),
+          Text(
+            'Esqueceu sua senha?',
+            style: TextStyle(fontSize: 12.0, color: Colors.grey),
           ),
-          const SizedBox(height: 25.0),
-          const Text('Esqueceu sua senha?',
-              style: TextStyle(fontSize: 12.0, color: Colors.grey)),
         ],
       ),
     );

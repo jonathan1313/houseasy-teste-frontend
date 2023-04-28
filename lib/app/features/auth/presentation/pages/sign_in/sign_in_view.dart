@@ -12,29 +12,30 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(1, 242, 241, 1),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-              child: Stack(
-            children: [
-              const AuthGradientBackgroundWidget(),
-              SafeArea(
-                child: Column(
-                  children: [
-                    AuthTopOptionWidget(
-                      labelText: 'Não possui um conta?',
-                      buttonText: 'Crie Agora',
-                      buttonAction: () {},
-                    ),
-                    const AuthContainerWidget(
-                      child: SignInFormComponent(),
-                    ),
-                  ],
+            child: Stack(
+              children: [
+                const AuthGradientBackgroundWidget(),
+                SafeArea(
+                  child: Column(
+                    children: [
+                      AuthTopOptionWidget(
+                        labelText: 'Não possui um conta?',
+                        buttonText: 'Crie Agora',
+                        buttonAction: () =>
+                            Navigator.pushNamed(context, '/signUp'),
+                      ),
+                      const AuthContainerWidget(
+                        child: SignInFormComponent(),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ))
+              ],
+            ),
+          )
         ],
       ),
     );
