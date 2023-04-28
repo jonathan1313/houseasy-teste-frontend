@@ -19,7 +19,6 @@ dependencies:
   equatable: ^2.0.5
   go_router: ^6.5.9
   http: ^0.13.5
-  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -34,7 +33,6 @@ flutter:
 
   assets:
     - assets/lottie/
-    - .env
 
   fonts:
     - family: Heebo

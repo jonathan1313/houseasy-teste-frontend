@@ -12,7 +12,7 @@ abstract class HttpClientService {
     required String url,
     required String method,
     Map? body,
-    Map? headers,
-    String? urlBase,
+    Map headers,
+    String urlBase,
   });
 }

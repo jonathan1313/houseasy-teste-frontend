@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart';
 
+import '../configs/api_tmdb_constants.dart';
 import 'http_client_service.dart';
 
 class HttpClientServiceImpl implements HttpClientService {
@@ -19,12 +19,11 @@ class HttpClientServiceImpl implements HttpClientService {
     Map? headers,
     String? urlBase,
   }) async {
-    var baseUrl = urlBase ?? dotenv.env['TMDBBASEURL'];
+    var baseUrl = urlBase ?? ApiTmdbConstants.baseUrl;
 
     final defaultHeaders = headers?.cast<String, String>() ?? {}
       ..addAll({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${dotenv.env['TMDBBASEURL']}'
       });
 
     final jsonBody = body != null ? jsonEncode(body) : null;
@@ -35,13 +34,13 @@ class HttpClientServiceImpl implements HttpClientService {
 
     try {
       if (method == 'post') {
-        futureResponse = client.post(Uri.parse(baseUrl! + url),
+        futureResponse = client.post(Uri.parse(baseUrl + url),
             headers: defaultHeaders, body: jsonBody);
       } else if (method == 'get') {
         futureResponse =
-            client.get(Uri.parse(baseUrl! + url), headers: defaultHeaders);
+            client.get(Uri.parse(baseUrl + url), headers: defaultHeaders);
       } else if (method == 'put') {
-        futureResponse = client.put(Uri.parse(baseUrl! + url),
+        futureResponse = client.put(Uri.parse(baseUrl + url),
             headers: defaultHeaders, body: jsonBody);
       }
 
