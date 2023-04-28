@@ -22,7 +22,7 @@ class SignInView extends StatelessWidget {
                   child: Column(
                     children: [
                       AuthTopOptionWidget(
-                        labelText: 'Não possui um conta?',
+                        labelText: 'Não possui uma conta?',
                         buttonText: 'Crie Agora',
                         buttonAction: () =>
                             Navigator.pushNamed(context, '/signUp'),

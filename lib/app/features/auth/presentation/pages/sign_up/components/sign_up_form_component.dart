@@ -61,7 +61,7 @@ class SignUpFormComponent extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     context.read<SignUpBloc>().add(const SignUpSetInitialStateEvent());
-                    Navigator.pushNamed(context, '/');
+                    Navigator.pushReplacementNamed(context, '/');
                   },
                   child: const Text('Entrar'),
                 ),
