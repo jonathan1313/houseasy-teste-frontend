@@ -27,7 +27,7 @@ class SignInView extends StatelessWidget {
                         buttonAction: () =>
                             Navigator.pushNamed(context, '/signUp'),
                       ),
-                      const AuthContainerWidget(
+                      AuthContainerWidget(
                         child: SignInFormComponent(),
                       ),
                     ],

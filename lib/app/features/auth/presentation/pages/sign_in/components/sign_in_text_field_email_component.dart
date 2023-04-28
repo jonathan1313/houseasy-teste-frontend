@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class SignInTextFieldEmailComponent extends StatelessWidget {
+import '../../../../../../core/mixins/input_validations_mixin.dart';
+
+class SignInTextFieldEmailComponent extends StatelessWidget with InputValidationsMixin {
   const SignInTextFieldEmailComponent({super.key});
 
   @override
@@ -11,7 +13,13 @@ class SignInTextFieldEmailComponent extends StatelessWidget {
         counterText: '',
       ),
       keyboardType: TextInputType.emailAddress,
-      onChanged: (value) {},
+      maxLength: 120,
+      validator: (textFieldValue) => combine([
+        () => isNotEmpty(textFieldValue),
+        () => hasMinChars(textFieldValue),
+        () => isValidEmail(textFieldValue),
+      ]),
+      onChanged: ((textFieldValue) {}),
     );
   }
 }
