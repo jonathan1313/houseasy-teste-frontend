@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:houseasy_teste_frontend/app/core/helpers/size_extensions.dart';
 
 import '../../../../auth/presentation/pages/sign_out/sign_out_page.dart';
@@ -43,7 +44,7 @@ class HomePage extends StatelessWidget {
                           title: 'Me Surpreenda',
                           subtitle: 'Indicação de 5 filmes aleatórios',
                           leadingIcon: Icons.movie_outlined,
-                          tileAction: (){},
+                          tileAction: () => context.push('/random_list'),
                         ),
                         RandomMovieListTileItemWidget(
                           title: 'Meus Favoritos',
