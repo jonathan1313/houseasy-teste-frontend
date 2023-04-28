@@ -8,7 +8,6 @@ abstract class SignUpEvent extends Equatable {
 }
 
 class SignUpEventUserNameTextChangedEvent extends SignUpEvent {
-
   final String userName;
 
   const SignUpEventUserNameTextChangedEvent({required this.userName});
@@ -18,7 +17,6 @@ class SignUpEventUserNameTextChangedEvent extends SignUpEvent {
 }
 
 class SignUpEventEmailTextChangedEvent extends SignUpEvent {
-
   final String email;
 
   const SignUpEventEmailTextChangedEvent({required this.email});
@@ -28,7 +26,6 @@ class SignUpEventEmailTextChangedEvent extends SignUpEvent {
 }
 
 class SignUpEventPasswordTextChangedEvent extends SignUpEvent {
-
   final String password;
 
   const SignUpEventPasswordTextChangedEvent({required this.password});
@@ -38,10 +35,10 @@ class SignUpEventPasswordTextChangedEvent extends SignUpEvent {
 }
 
 class SignUpEventPasswordConfirmationTextChangedEvent extends SignUpEvent {
-
   final String passwordConfirmation;
 
-  const SignUpEventPasswordConfirmationTextChangedEvent({required this.passwordConfirmation});
+  const SignUpEventPasswordConfirmationTextChangedEvent(
+      {required this.passwordConfirmation});
 
   @override
   List<Object> get props => [passwordConfirmation];
@@ -49,4 +46,8 @@ class SignUpEventPasswordConfirmationTextChangedEvent extends SignUpEvent {
 
 class SignUpEventSubmitButtonPressedEvent extends SignUpEvent {
   const SignUpEventSubmitButtonPressedEvent();
+}
+
+class SignUpSetInitialStateEvent extends SignUpEvent {
+  const SignUpSetInitialStateEvent();
 }

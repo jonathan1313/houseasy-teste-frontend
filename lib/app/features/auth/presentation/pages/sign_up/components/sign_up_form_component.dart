@@ -21,7 +21,19 @@ class SignUpFormComponent extends StatelessWidget {
       child: BlocListener<SignUpBloc, SignUpState>(
         listener: (context, state) {
           
-          // active loading and success menssage
+          if (state.status == SignUpStatus.loading) {
+
+            
+            
+          }
+
+          if (state.status == SignUpStatus.failure) {
+            
+          }
+
+          if (state.status == SignUpStatus.success) {
+            
+          }
           
         },
         child: Form(

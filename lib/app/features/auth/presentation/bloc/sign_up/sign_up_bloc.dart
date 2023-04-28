@@ -20,6 +20,14 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     on<SignUpEventPasswordTextChangedEvent>(_handleSignUpEventPasswordTextChangedEvent);
     on<SignUpEventPasswordConfirmationTextChangedEvent>(_handleSignUpEventPasswordConfirmationTextChangedEvent);
     on<SignUpEventSubmitButtonPressedEvent>(_handleSignUpEventSubmitButtonPressedEvent);
+    on<SignUpSetInitialStateEvent>(_handleSignUpSetInitialStateEvent);
+  }
+
+  Future<void> _handleSignUpSetInitialStateEvent(
+    SignUpSetInitialStateEvent event,
+    Emitter<SignUpState> emit,
+  ) async {
+    emit(state.copyWith(status: SignUpStatus.initial));
   }
 
   Future<void> _handleSignUpEventUserNameTextChangedEvent(
