@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:houseasy_teste_frontend/app/core/configs/api_tmdb_constants.dart';
-import 'package:houseasy_teste_frontend/app/core/helpers/size_extensions.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../../../core/styles/custom_theme.dart';
 import '../../../data/models/movie_model.dart';
+import '../../widgets/random_movie_list_gradient_background.dart';
 import '../../bloc/random_list_generation/random_list_generation_bloc.dart';
+
+import 'components/random_list_generation_loading.dart';
 import 'components/random_list_generation_movie_container_component.dart';
 
 class RandomListGenerationView extends StatefulWidget {
@@ -27,38 +27,32 @@ class _RandomListGenerationViewState extends State<RandomListGenerationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<RandomListGenerationBloc, RandomListGenerationState>(
-        builder: (context, state) {
-          if (state.status == RandomListGenerationStatus.initial) {
-            return const Center(
-              child: Text('Nenhum filminho ainda'),
-            );
-          }
-
-          if (state.status == RandomListGenerationStatus.loading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          if (state.status == RandomListGenerationStatus.loaded) {
-            List<Movie> moviesList = state.moviesList ?? [];
-
-            return Stack(
-              children: [
-                Container(
-                  width: context.screenWidth,
-                  height: context.screenHeight,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        CustomTheme.color.shade400,
-                        CustomTheme.color.shade900,
-                      ],
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
+      body: Stack(
+        children: [
+          const RandomMovieListGradientBackground(),
+          BlocBuilder<RandomListGenerationBloc, RandomListGenerationState>(
+            builder: (context, state) {
+              if (state.status == RandomListGenerationStatus.initial) {
+                return const Center(
+                  child: Text(
+                    'Nenhum filme encontrado...',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
-                ),
-                ListView.builder(
+                );
+              }
+
+              if (state.status == RandomListGenerationStatus.loading) {
+                return const RandomListGenerationLoading();
+              }
+
+              if (state.status == RandomListGenerationStatus.loaded) {
+                List<Movie> moviesList = state.moviesList ?? [];
+
+                return ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: moviesList.length,
                   itemBuilder: (context, index) {
@@ -66,13 +60,26 @@ class _RandomListGenerationViewState extends State<RandomListGenerationView> {
                       movie: moviesList[index],
                     );
                   },
-                ),
-              ],
-            );
-          }
+                );
+              }
 
-          return Container();
-        },
+              return Container();
+            },
+          ),
+          Positioned(
+            top: 20.0,
+            left: 5.0,
+            child: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                context.pop();
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

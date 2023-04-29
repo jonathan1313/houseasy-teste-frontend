@@ -23,8 +23,6 @@ class RandomListGenerationRapositoryImpl implements RandomListGenerationRaposito
     final List<Movie> moviesList = Movies.fromJson(result).listMovies;
     moviesList.shuffle();
 
-    print(moviesList.take(5).toList());
-
     return moviesList.take(5).toList();
 
   }

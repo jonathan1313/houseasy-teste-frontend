@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Movies {
   int? page;
   late final List<Movie> listMovies;
@@ -99,5 +101,11 @@ class Movie {
   @override
   String toString() {
     return 'Movie(posterPath: $posterPath, adult: $adult, overview: $overview, releaseDate: $releaseDate, genreIds: $genreIds, id: $id, originalTitle: $originalTitle, originalLanguage: $originalLanguage, title: $title, backdropPath: $backdropPath, popularity: $popularity, voteCount: $voteCount, video: $video, voteAverage: $voteAverage)';
+  }
+
+  String getReleaseYear () {
+    final DateTime release = DateTime.parse(releaseDate ?? '0000-00-00');
+    final releaseYear = DateFormat('yyyy').format(release);
+    return releaseYear;
   }
 }
