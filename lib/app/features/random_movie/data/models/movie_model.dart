@@ -39,7 +39,7 @@ class Movie {
   String? originalLanguage;
   String? title;
   String? backdropPath;
-  double? popularity;
+  num? popularity;
   int? voteCount;
   bool? video;
   num? voteAverage;
