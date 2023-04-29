@@ -8,8 +8,7 @@ import 'features/auth/domain/usecases/current_user/current_user_usecase_impl.dar
 import 'features/auth/presentation/pages/sign_in/sign_in_page.dart';
 import 'features/auth/presentation/pages/sign_up/sign_up_page.dart';
 import 'features/random_movie/presentation/pages/home/home_page.dart';
-import 'features/random_movie/presentation/pages/random_list_generation/random_list_generation_view.dart';
-
+import 'features/random_movie/presentation/pages/random_list_generation/random_list_generation_page.dart';
 // class Routers {
 //   Routers._();
 
@@ -44,7 +43,7 @@ final GoRouter routes = GoRouter(
     ),
     GoRoute(
       path: '/random_list',
-      builder: (context, state) => const RandomListGenerationView(),
+      builder: (context, state) => RandomListGenerationPage(),
     )
   ],
 );
