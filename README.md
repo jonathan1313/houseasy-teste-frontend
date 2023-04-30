@@ -29,7 +29,13 @@ O projeto consiste em uma aplicação onde um usuário cadastrado pode ter acess
 
 ### Screenshots
 
-
+<p align="middle">
+<img src="https://github.com/jonathan1313/houseasy-teste-frontend/blob/main/assets/screenshots/randomovie_screenshot03.jpeg" width="20%">
+<img src="https://github.com/jonathan1313/houseasy-teste-frontend/blob/main/assets/screenshots/randomovie_screenshot02.jpeg" width="20%">
+<img src="https://github.com/jonathan1313/houseasy-teste-frontend/blob/main/assets/screenshots/randomovie_screenshot04.jpeg" width="20%">
+<img src="https://github.com/jonathan1313/houseasy-teste-frontend/blob/main/assets/screenshots/randomovie_screenshot01.jpeg" width="20%">
+<img src="https://github.com/jonathan1313/houseasy-teste-frontend/blob/main/assets/screenshots/randomovie_screenshot05.jpeg" width="20%">
+</p>
 
 ## 🚀 Configurando para Utilizar
 
