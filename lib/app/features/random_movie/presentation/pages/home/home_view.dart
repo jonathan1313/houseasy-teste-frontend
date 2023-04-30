@@ -69,7 +69,7 @@ class _HomeViewState extends State<HomeView> {
                           title: 'Meus Favoritos',
                           subtitle: 'Filmes salvos como favoritos',
                           leadingIcon: Icons.star_outline,
-                          tileAction: () {},
+                          tileAction: () => context.push('/favorite_movies'),
                         ),
                         RandomMovieListTileItemWidget(
                           title: 'Informações Pessoais',

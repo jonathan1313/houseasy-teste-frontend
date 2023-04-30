@@ -3,14 +3,14 @@ import 'dart:math';
 import '../../../../core/configs/api_tmdb_constants.dart';
 import '../../../../core/services/http_client_service.dart';
 
-import '../../domain/repositories/random_list_generation_rapository.dart';
+import '../../domain/repositories/random_list_generation_repository.dart';
 
 import '../models/movie_model.dart';
 
-class RandomListGenerationRapositoryImpl
-    implements RandomListGenerationRapository {
+class RandomListGenerationRepositoryImpl
+    implements RandomListGenerationRepository {
   final HttpClientService _clientService;
-  RandomListGenerationRapositoryImpl(this._clientService);
+  RandomListGenerationRepositoryImpl(this._clientService);
 
   @override
   Future<List<Movie>> getMovies() async {

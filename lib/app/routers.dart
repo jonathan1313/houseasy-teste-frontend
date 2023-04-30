@@ -9,6 +9,7 @@ import 'features/auth/domain/usecases/current_user/current_user_usecase_impl.dar
 import 'features/auth/presentation/pages/sign_in/sign_in_page.dart';
 import 'features/auth/presentation/pages/sign_up/sign_up_page.dart';
 import 'features/random_movie/presentation/pages/home/home_page.dart';
+import 'features/random_movie/presentation/pages/list_favorite_movies/list_favorite_movies_page.dart';
 import 'features/random_movie/presentation/pages/movie_details/movie_details_page.dart';
 import 'features/random_movie/presentation/pages/random_list_generation/random_list_generation_page.dart';
 
@@ -44,6 +45,12 @@ final GoRouter routes = GoRouter(
       builder: (context, state) {
         return MovieDetailsPage(movie: state.extra as Movie);
       },
-    )
+    ),
+    GoRoute(
+      path: '/favorite_movies',
+      builder: (context, state) {
+        return ListFavoriteMoviesPage();
+      },
+    ),
   ],
 );

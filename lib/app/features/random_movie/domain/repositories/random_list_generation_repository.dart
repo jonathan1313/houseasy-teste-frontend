@@ -1,5 +1,5 @@
 import '../../data/models/movie_model.dart';
 
-abstract class RandomListGenerationRapository {
+abstract class RandomListGenerationRepository {
   Future<List<Movie>> getMovies();
 }
