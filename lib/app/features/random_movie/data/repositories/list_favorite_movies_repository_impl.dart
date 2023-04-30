@@ -7,6 +7,11 @@ import '../../domain/repositories/list_favorite_movies_repository.dart';
 
 import '../models/movie_model.dart';
 
+///
+/// Essa função recupera uma lista de filmes cadastrados no FirabaseFirestore
+/// utiliza o id do usuario atualmente cadastrado para recuperar a lista correta
+///
+
 class ListFavoriteMoviesRepositoryImpl implements ListFavoriteMoviesRepository {
   final FirebaseFirestore _firebaseFirestore;
   final FirebaseAuth _firebaseAuth;

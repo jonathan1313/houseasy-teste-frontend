@@ -6,6 +6,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../domain/repositories/save_movie_on_favorites_repository.dart';
 import '../models/movie_model.dart';
 
+///
+/// A função salva um objeto do tipo Movie no FirebaseFirestore
+/// o id do usuario atual é usado para criar um nó/documento único
+/// todos os registros estao salvos na mesma colecao 'favorite_movies'
+/// mas são separados em documentos individuais definidos pelo id do usuario atual
+/// essa ordem será importante para recupera os dados posteriormente
+///
+
 class SaveMovieOnFavoritesRepositoryImpl implements SaveMovieOnFavoritesRepository {
 
   final FirebaseFirestore _firebaseFirestore;

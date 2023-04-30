@@ -29,7 +29,12 @@ class ListFavoriteMoviesBloc extends Bloc<
 
       List<Movie> movieList = await _listFavoriteMoviesUsecase.getFavoriteMovies();
 
-      emit(state.copyWith(status: ListFavoriteMoviesStatus.loaded, movieList: movieList, message: 'Lista de favoritos carregada com sucesso'));
+      if (movieList.isEmpty) {
+        emit(state.copyWith(status: ListFavoriteMoviesStatus.empty, message: 'Você ainda não possuí nenhum favorito salvo.'));
+      } else {
+        emit(state.copyWith(status: ListFavoriteMoviesStatus.loaded, movieList: movieList, message: 'Lista de favoritos carregada com sucesso'));
+      }
+
       
     } on FirebaseException catch (error, stack) {
       log('Erro recuperar lista de favoritos do usuário', error: error, stackTrace: stack);

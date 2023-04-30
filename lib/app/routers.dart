@@ -1,5 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:houseasy_teste_frontend/app/features/random_movie/data/models/movie_model.dart';
 
 import 'features/auth/data/repositories/current_user_repository_impl.dart';
@@ -8,6 +9,7 @@ import 'features/auth/domain/usecases/current_user/current_user_usecase_impl.dar
 
 import 'features/auth/presentation/pages/sign_in/sign_in_page.dart';
 import 'features/auth/presentation/pages/sign_up/sign_up_page.dart';
+
 import 'features/random_movie/presentation/pages/home/home_page.dart';
 import 'features/random_movie/presentation/pages/list_favorite_movies/list_favorite_movies_page.dart';
 import 'features/random_movie/presentation/pages/movie_details/movie_details_page.dart';

@@ -5,6 +5,7 @@ enum ListFavoriteMoviesStatus {
   loading,
   loaded,
   failure,
+  empty,
 }
 
 class ListFavoriteMoviesState extends Equatable {

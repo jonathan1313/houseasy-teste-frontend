@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import '../styles/custom_theme.dart';
 
@@ -44,6 +45,8 @@ class CustomGradientButtonWidget extends StatelessWidget {
           ),
         ),
       ),
-    );
+    )
+        .animate(onPlay: (controller) => controller.repeat())
+        .shimmer(delay: 5000.ms, duration: 1000.ms);
   }
 }

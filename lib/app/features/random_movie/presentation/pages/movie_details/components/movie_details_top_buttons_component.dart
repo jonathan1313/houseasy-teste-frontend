@@ -18,7 +18,7 @@ class MovieDetailsTopButtonsComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 25.0,
+      top: 35.0,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         width: context.screenWidth,
