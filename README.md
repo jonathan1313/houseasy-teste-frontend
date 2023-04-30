@@ -41,7 +41,7 @@ O projeto consiste em uma aplicação onde um usuário cadastrado pode ter acess
 ### Instalação Flutter
 
 
-Para iniciar o projeto antes de mais nada se certifique que o Flutter SDK está instalado e configurado corretamente em sua máquina e que está usando a versão mais recente. 
+Para iniciar o projeto antes de mais nada certifique-se que o Flutter SDK está instalado e configurado corretamente em sua máquina e que está usando a versão mais recente. 
 
 É possível fazer essa verificação utilizando o comando abaixo:
 ```
