@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -25,12 +27,12 @@ class ListFavoriteMoviesRepositoryImpl implements ListFavoriteMoviesRepository {
           .collection('user_favorites')
           .get();
 
-      print(snapshot.docs.map((movie) => Movie.fromMap(movie.data())).toList());
-
       return snapshot.docs.map((movie) => Movie.fromMap(movie.data())).toList();
     } on FirebaseException catch (error, stack) {
+      log('Erro ao tenta recuperar o snapshot de listagem de favoritos do Firestore', error: error, stackTrace: stack);
       rethrow;
     } catch (error, stack) {
+      log('Erro na função de listagem de favoritos', error: error, stackTrace: stack);
       rethrow;
     }
   }

@@ -28,7 +28,6 @@ class SignOutView extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             alertType: AnimatedIconsTypes.info,
-            repeatIconAnimation: false,
             actions: [
               TextButton(
                 onPressed: () => context.pop(),

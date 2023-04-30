@@ -61,13 +61,9 @@ class RandomListGenerationMovieContainerComponent extends StatelessWidget {
                 onPlay: (controller) => controller.repeat(),
               )
               .moveY(
-                begin: -5,
-                end: 3,
-                curve: Curves.easeInOut,
-                duration: 1000.ms,
-              )
+                  begin: 3, end: -5, curve: Curves.easeInOut, duration: 1000.ms)
               .then()
-              .moveY(begin: 3, end: -5, curve: Curves.easeInOut),
+              .moveY(begin: -5, end: 3, curve: Curves.easeInOut),
           Padding(
             padding: const EdgeInsets.only(top: 15.0),
             child: Container(

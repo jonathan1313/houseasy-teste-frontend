@@ -11,6 +11,7 @@ import 'features/auth/presentation/pages/sign_up/sign_up_page.dart';
 import 'features/random_movie/presentation/pages/home/home_page.dart';
 import 'features/random_movie/presentation/pages/list_favorite_movies/list_favorite_movies_page.dart';
 import 'features/random_movie/presentation/pages/movie_details/movie_details_page.dart';
+import 'features/random_movie/presentation/pages/personal_informations/personal_informations_page.dart';
 import 'features/random_movie/presentation/pages/random_list_generation/random_list_generation_page.dart';
 
 final CurrentUserUsecase _currentUserUsecase =
@@ -50,6 +51,13 @@ final GoRouter routes = GoRouter(
       path: '/favorite_movies',
       builder: (context, state) {
         return ListFavoriteMoviesPage();
+      },
+    ),
+    GoRoute(
+      path: '/personal_informations',
+      name: 'personal_informations',
+      builder: (context, state) {
+        return PersonalInformationsPage(currentUser: state.extra as User);
       },
     ),
   ],

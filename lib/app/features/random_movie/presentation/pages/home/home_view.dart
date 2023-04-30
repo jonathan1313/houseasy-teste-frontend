@@ -48,6 +48,7 @@ class _HomeViewState extends State<HomeView> {
                 children: [
                   CircleAvatar(
                     radius: context.percentWidth(0.15),
+                    backgroundImage: const AssetImage('assets/images/profile_example.png'),
                   ),
                   const SizedBox(height: 10.0),
                   Text(
@@ -75,7 +76,7 @@ class _HomeViewState extends State<HomeView> {
                           title: 'Informações Pessoais',
                           subtitle: 'Detalhes sobre sua conta',
                           leadingIcon: Icons.person_outline,
-                          tileAction: () {},
+                          tileAction: () => context.pushNamed('personal_informations', extra: currentUser),
                         ),
                       ],
                     ),
