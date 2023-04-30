@@ -63,7 +63,7 @@ Acesse a pasta com o comando:
 cd houseasy-teste-frontend
 ```
 
-Faça a instalação dos pacotes nescesario:
+Faça a instalação dos pacotes nescesarios:
 ```
 flutter pub get
 ```
