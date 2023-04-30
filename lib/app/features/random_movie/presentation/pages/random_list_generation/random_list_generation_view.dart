@@ -67,7 +67,7 @@ class _RandomListGenerationViewState extends State<RandomListGenerationView> {
             },
           ),
           Positioned(
-            top: 20.0,
+            top: 30.0,
             left: 5.0,
             child: IconButton(
               icon: const Icon(

@@ -82,6 +82,6 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     SignInSetInitialStateEvent event,
     Emitter<SignInState> emit,
   ) async {
-    emit(state.copyWith(status: SignInStatus.initial, email: '', password: ''));
+    emit(state.copyWith(status: SignInStatus.initial));
   }
 }

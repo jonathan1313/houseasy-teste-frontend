@@ -10,12 +10,10 @@ import '../../../bloc/save_movie_on_favorites_repository/save_movie_on_favorites
 class MovieDetailsTopButtonsComponent extends StatelessWidget {
   final Movie movie;
 
-  MovieDetailsTopButtonsComponent({
+  const MovieDetailsTopButtonsComponent({
     super.key,
     required this.movie,
   });
-
-  final ValueNotifier<bool> _isFavorited = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +38,13 @@ class MovieDetailsTopButtonsComponent extends StatelessWidget {
               builder: (context, state) {
                 if (state.status ==
                     SaveMovieOnFavoritesRepositoryStatus.saved) {
-                  return Icon(
-                    Icons.star,
-                    color: Colors.yellow.shade700,
-                    size: 30.0,
+                  return IconButton(
+                    icon: Icon(
+                      Icons.star,
+                      color: Colors.yellow.shade700,
+                      size: 30.0,
+                    ),
+                    onPressed: () {},
                   );
                 }
 
