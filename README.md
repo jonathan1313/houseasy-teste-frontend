@@ -55,7 +55,7 @@ Caso você não possua o Flutter instalado a [Documentação Oficial](https://do
 Atraves do terminal, faça o clone do repositorio em uma pasta usando o comando:
 
 ```
-git clone git@github.com:jonathan1313/houseasy-teste-frontend.git
+git clone https://github.com/jonathan1313/houseasy-teste-frontend.git
 ```
 Acesse a pasta com o comando:
 
